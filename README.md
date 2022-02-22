@@ -8,7 +8,7 @@ All tests were performed with ExpressionEngine version 6.2.5
 
 ### 1) Download the zip file
 
-- Download the file ```CircleAccess.zip``` and unzip it to the root folder of ExpressionEngine. Below is the structure of the Circle Access add-on:
+- Download the file ```CircleAccess.zip``` by pressing the CODE button above and selecting ```Donwload Zip```. Unzip it to the root folder of ExpressionEngine. Below is the structure of the Circle Access add-on:
 
 ![alt text](circle_access/images/image1.png)
 
