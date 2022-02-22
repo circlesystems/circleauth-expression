@@ -1,0 +1,15 @@
+ .circle-login-container {
+     width: 100%;
+ }
+ 
+ .circle-login-title {
+     width: 100%;
+     padding: 10px;
+     text-align: center;
+     color: lightgray;
+ }
+ 
+ .circle-login-btn {
+     width: 100%;
+     text-align: center;
+ }
