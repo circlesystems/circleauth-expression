@@ -13,3 +13,9 @@
      width: 100%;
      text-align: center;
  }
+ 
+ .circle-error-msg {
+     color: red;
+     font-size: 15px;
+     margin-top: 20px;
+ }

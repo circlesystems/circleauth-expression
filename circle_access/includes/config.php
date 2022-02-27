@@ -2,7 +2,7 @@
 
 //Check the table exp_actions to get the CircleAccess ID
 
-define('CIRCLE_ACCESS_ACT', 46);
+define('CIRCLE_ACCESS_ACT', 151); // <== check your DB to have the correct ID here
 
 //API Keys
 define('APP_NAME', 'ExpressionEngine');
@@ -29,4 +29,8 @@ define('PENDING', 4);
 define('MEMBERS', 5);
 
 //Default new member role.
-define('NEW_MEMBER_DEFAULT_ROLE', SUPERADMIN);
+define('NEW_MEMBER_DEFAULT_ROLE', MEMBERS);
+
+//Add Member if not exists in Expression
+define('ADD_MEMBER_IF_NOT_EXISTS', 0);
+define('MEMBER_NOT_EXISTS_ERROR', 'This e-mail is not registered as a member.');

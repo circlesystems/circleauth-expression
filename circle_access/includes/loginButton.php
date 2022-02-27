@@ -5,7 +5,7 @@
 ?>
 </style>
 
-<?php  
+<?php
   include_once 'circle_access/includes/config.php';
 ?>
 
@@ -22,11 +22,18 @@
             <span class="circleaccess-text circleaccess-text-long">Login with Circle </span>
             <span class="circleaccess-text circleaccess-text-short">Circle Auth</span>
         </button>
+        <div class="circle-error-msg">
+          <?php
+          session_start();
+          echo $_SESSION['circleCallback']['error'];
+          $_SESSION['circleCallback']['error'] = '';
+          ?>
+        </div>
     </div>
 </div>
 
 <script>
    function redirectToUrl(e){
-     location.href="<?php echo CIRCLEAUTH_LOGIN_URL.APP_KEY?>";
+     location.href="<?php echo CIRCLEAUTH_LOGIN_URL.APP_KEY; ?>";
    }
 </script>

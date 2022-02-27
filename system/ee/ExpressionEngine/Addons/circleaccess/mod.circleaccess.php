@@ -31,6 +31,7 @@ class CircleAccess
         $this->circleEmail = $_SESSION['circleCallback']['circleEmail'];
         $this->newMemberRole = $_SESSION['circleCallback']['newMemberRole'];
         $this->handleRequest();
+        $_SESSION['circleCallback']['error'] = '';
     }
 
     protected function getCircleUser($userID)
@@ -40,8 +41,11 @@ class CircleAccess
 
             return null;
         }
-        $sql = 'SELECT exp_circle_access.member_id FROM  exp_circle_access   
-        INNER join exp_members on exp_members.member_id= exp_circle_access.member_id';
+        $circleTableName = ee()->db->dbprefix('circle_access');
+        $membersTableName = ee()->db->dbprefix('members');
+
+        $sql = 'SELECT '.$circleTableName.'.member_id FROM  '.$circleTableName.'   
+        INNER join '.$membersTableName.' on '.$membersTableName.'.member_id= '.$circleTableName.'.member_id';
         $sql .= ' where user_id = "'.$userID.'"';
 
         $query = ee()->db->query($sql);
@@ -103,6 +107,12 @@ class CircleAccess
 
     protected function addMemberToCircleAccess($memberId)
     {
+        //remove a previous Circle userId / email
+        $tableName = ee()->db->dbprefix('circle_access');
+        $sql = 'delete from '.$tableName.' where member_id='.$memberId;
+        ee()->db->query($sql);
+
+        //insert the member
         $data['member_id'] = $memberId;
         $data['user_id'] = $this->userID;
         $data['user_email'] = $this->circleEmail;
@@ -156,7 +166,12 @@ class CircleAccess
             //do the insert into circle_access table and login the member
             $this->addMemberToCircleAccess($query->result_array()[0]['member_id']);
         } else {
-            $this->addExpressionMember();
+            if ($_SESSION['circleCallback']['addMemberNotExists'] == 1) {
+                $this->addExpressionMember();
+            } else {
+                $_SESSION['circleCallback']['error'] = $_SESSION['circleCallback']['memberNotExistsError'];
+                ee()->functions->redirect('/admin.php');
+            }
         }
     }
 }

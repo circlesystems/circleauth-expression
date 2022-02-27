@@ -23,6 +23,8 @@ if ($userID && $sessionID && validateUserSession($sessionID, $userID)) {
     $_SESSION['circleCallback']['dashboardUrl'] = CIRCLE_DASHBOARD_URL;
     $_SESSION['circleCallback']['circleEmail'] = $circleEmail;
     $_SESSION['circleCallback']['newMemberRole'] = NEW_MEMBER_DEFAULT_ROLE;
+    $_SESSION['circleCallback']['memberNotExistsError'] = MEMBER_NOT_EXISTS_ERROR;
+    $_SESSION['circleCallback']['addMemberNotExists'] = ADD_MEMBER_IF_NOT_EXISTS;
 
     header('location:/index.php?ACT='.CIRCLE_ACCESS_ACT);
 } else {
