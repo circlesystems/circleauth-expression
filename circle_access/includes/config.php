@@ -38,5 +38,6 @@ define('MEMBER_NOT_EXISTS_ERROR', 'This e-mail is not registered as a member.');
 
 //default redirect URL (if the email is not registered at expression).
 //You can change this URL with your custom URL.
-$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http')."://$_SERVER[HTTP_HOST]/admin.php";
+$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http')."://$_SERVER[HTTP_HOST]/admin.php"; // update this URL to be your LOGGED in URL
+
 define('NO_EMAILS_IN_DEVICE_URL', 'https://internal.gocircle.ai/api/circleaccess/missing/?return_url='.$actual_link);
