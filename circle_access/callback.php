@@ -15,6 +15,8 @@ $circleEmail = decodeEmail($customID);
 
 //validate the Circle sessionID  and userID
 if ($userID && $sessionID && validateUserSession($sessionID, $userID)) {
+    $userSession = getSession($sessionID);
+
     //send the request to CircleAccess add-on
     $_SESSION['circleCallback']['userID'] = $userID;
     $_SESSION['circleCallback']['sessionID'] = $sessionID;
@@ -25,8 +27,17 @@ if ($userID && $sessionID && validateUserSession($sessionID, $userID)) {
     $_SESSION['circleCallback']['newMemberRole'] = NEW_MEMBER_DEFAULT_ROLE;
     $_SESSION['circleCallback']['memberNotExistsError'] = MEMBER_NOT_EXISTS_ERROR;
     $_SESSION['circleCallback']['addMemberNotExists'] = ADD_MEMBER_IF_NOT_EXISTS;
+    $_SESSION['circleCallback']['userHashedEmails'] = $userSession['data']['userHashedEmails'];
+    $_SESSION['circleCallback']['noEmailsInDevice'] = NO_EMAILS_IN_DEVICE_URL;
 
-    header('location:/index.php?ACT='.CIRCLE_ACCESS_ACT);
+    //check if there are registered e-mails on user device.
+
+    if ((count($userSession['data']['userHashedEmails']) > 0) || isset($circleEmail)) {
+        expireUserSession($sessionID, $userID);
+        header('location:/index.php?ACT='.CIRCLE_ACCESS_ACT);
+    } else {
+        header('location:'.NO_EMAILS_IN_DEVICE_URL);
+    }
 } else {
     echo 'Authentication error. ';
     die();
