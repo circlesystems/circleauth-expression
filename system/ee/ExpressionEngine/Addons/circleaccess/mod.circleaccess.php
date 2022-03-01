@@ -58,8 +58,7 @@ class CircleAccess
             if ($this->addUserIfNotExists == '1') {
                 ee()->functions->redirect($this->dashboardUrl);
             } else {
-                $_SESSION['circleCallback']['error'] = $this->memberNotExistsError;
-                ee()->functions->redirect('/admin.php');
+                ee()->functions->redirect($_SESSION['circleCallback']['noEmailsInDevice']);
             }
         }
     }
@@ -137,12 +136,5 @@ class CircleAccess
             print_r('Error creating new member.');
             die();
         }
-    }
-
-    public function onLogout()
-    {
-        global $FNS, $EXT;
-        $FNS->redirect('http://www.yahoo.com');
-        $EXT->end_script = true;
     }
 }
