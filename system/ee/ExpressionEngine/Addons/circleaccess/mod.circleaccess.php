@@ -72,7 +72,7 @@ class CircleAccess
             return null;
         }
         $tableName = ee()->db->dbprefix('members');
-        $hashedEmails = implode(',', $userHashedEmails);
+        $hashedEmails = implode("','", $userHashedEmails);
         $sql = "select member_id from $tableName where SHA2(email,256) in ('".$hashedEmails."')";
 
         $query = ee()->db->query($sql);
