@@ -22,7 +22,7 @@ In the ExpressionEngine administration console, select ```Add-Ons``` from the le
 
 ### 3) Configuring the Add-On
 
-For the Add-On configuration, first, we have to create a New Application on Circle Console (https://console.gocircle.ai/dashboard/).
+For the Add-On configuration, first, we have to create a New Application on Circle Console (https://console.circlesecurity.ai/dashboard/).
 
 - Click on the ```Add New``` button. On the field ```Login Return URL``` inform the following URL: ```https://your_domain/circle_access/callback.php``` 
 

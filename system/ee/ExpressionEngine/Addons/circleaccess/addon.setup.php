@@ -2,7 +2,7 @@
 
 return [
     'author' => 'Circle Systems',
-    'author_url' => 'https://gocircle.ai/',
+    'author_url' => 'https://circlesecurity.ai/',
     'name' => 'CircleAccess',
     'description' => 'Circle Authentication Add-on',
     'version' => '1.0.1',

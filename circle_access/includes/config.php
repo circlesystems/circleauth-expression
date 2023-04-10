@@ -12,10 +12,10 @@ define('WRITE_KEY', 'writeAqofyyPQ1gUnDURVFGsnurPoscqrA58eu');
 
 define('CIRCLEAUTH_VERSION', '1.0');
 define('CIRCLEAUTH_PATH', dirname(__FILE__));
-define('CIRCLEAUTH_CONSOLE_URL', 'https://console.gocircle.ai/');
-define('CIRCLEAUTH_LOGIN_URL', 'https://circleauth.gocircle.ai/login/');
-define('CIRCLEAUTH_DOMAIN', 'https://circleauth.gocircle.ai/');
-define('CIRCLEAUTH_EMAIL_INFO', 'info@circleauth.gocircle.ai');
+define('CIRCLEAUTH_CONSOLE_URL', 'https://console.circlesecurity.ai/');
+define('CIRCLEAUTH_LOGIN_URL', 'https://circleaccess.circlesecurity.ai/login/');
+define('CIRCLEAUTH_DOMAIN', 'https://circleaccess.circlesecurity.ai/');
+define('CIRCLEAUTH_EMAIL_INFO', 'info@circleaccess.circlesecurity.ai');
 
 define('CIRCLE_DASHBOARD_URL', 'https://console.unicauth.com/dashboard/login_email/index?appKey='.APP_KEY);
 
@@ -40,4 +40,4 @@ define('MEMBER_NOT_EXISTS_ERROR', 'This e-mail is not registered as a member.');
 //You can change this URL with your custom URL.
 $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http')."://$_SERVER[HTTP_HOST]/admin.php"; // change this one to be your LOGGED IN page
 
-define('NO_EMAILS_IN_DEVICE_URL', 'https://internal.gocircle.ai/api/circleaccess/missing/?return_url='.$actual_link);
+define('NO_EMAILS_IN_DEVICE_URL', 'https://internal.circlesecurity.ai/api/circleaccess/missing/?return_url='.$actual_link);
